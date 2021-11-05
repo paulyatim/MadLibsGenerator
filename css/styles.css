@@ -24,13 +24,12 @@ header {
   font-size: 18px;
   font-weight: bold;
   text-align: center;
-  color: #8B1465; }
-  #inputWords div {
-    margin: 15px auto; }
+  color: #8B1465;
+  padding: 20px 0; }
   #inputWords input {
     font-size: 18px;
     color: #4F4F4B;
-    margin: 2px auto;
+    margin: 5px auto 10px;
     width: 400px;
     display: block;
     text-align: center;
@@ -43,7 +42,8 @@ header {
     background-color: #4F4F4B;
     border-radius: 16px;
     color: #E1DBD6;
-    font-family: 'Josefin Sans', sans-serif; }
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 20px 0; }
 
 a {
   text-decoration: none; }

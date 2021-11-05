@@ -32,13 +32,11 @@ header {
     font-weight: bold;
     text-align: center;
     color: #8B1465;
-    div {
-        margin: 15px auto;
-    }
+    padding: 20px 0;
     input {
         font-size: 18px;
         color: #4F4F4B;
-        margin: 2px auto;
+        margin: 5px auto 10px;
         width: 400px;
         display: block;
         text-align: center;
@@ -53,6 +51,7 @@ header {
         border-radius: 16px;
         color: #E1DBD6;
         font-family: 'Josefin Sans', sans-serif;
+        margin: 20px 0;
     }
 }
 a {
