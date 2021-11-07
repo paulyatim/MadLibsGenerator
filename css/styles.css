@@ -1,13 +1,9 @@
 body {
   background-color: #FAF8F6;
   margin: 0;
-  font-family: 'Josefin Sans', sans-serif;
-  display: grid;
-  grid-template-areas: "header header" "braveheart got" "espanol avatar" "inputWords presentation";
-  grid-template-columns: 50% 50%; }
+  font-family: 'Josefin Sans', sans-serif; }
 
 header {
-  grid-area: header;
   margin: 20px;
   text-align: center; }
   header h1 {
@@ -19,13 +15,27 @@ header {
     font-size: 28px;
     color: #43285D; }
 
+nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 0; }
+  nav ul li {
+    background-color: #EAEB21;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #43285D;
+    cursor: pointer; }
+
 #inputWords {
-  grid-area: inputWords;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
-  color: #8B1465;
-  padding: 20px 0; }
+  color: #8B1465; }
   #inputWords input {
     font-size: 18px;
     color: #4F4F4B;
@@ -43,46 +53,58 @@ header {
     border-radius: 16px;
     color: #E1DBD6;
     font-family: 'Josefin Sans', sans-serif;
-    margin: 20px 0; }
+    margin: 20px 0;
+    padding: 5px;
+    cursor: pointer;
+    border: none; }
 
 a {
   text-decoration: none; }
 
-#presentation {
-  grid-area: presentation; }
-  #presentation div {
-    margin: 20px;
-    padding: 60px 30px 60px 30px;
-    background-color: #E1DBD6;
-    color: #8B1465;
-    border-radius: 15px;
-    border-style: solid;
-    border-width: 15px;
-    border-color: #43285D; }
-    #presentation div p {
-      margin: 0;
-      font-size: 24px;
-      line-height: 50px;
-      text-align: left;
-      font-weight: normal;
-      color: #8B1465; }
-      #presentation div p span {
-        font-weight: bold;
-        color: #43285D; }
-    #presentation div .resultTitle {
-      font-size: 32px;
-      text-align: center;
+#presentation div {
+  margin: 20px;
+  padding: 60px 30px 60px 30px;
+  background-color: #E1DBD6;
+  color: #8B1465;
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 15px;
+  border-color: #43285D; }
+  #presentation div p {
+    margin: 0;
+    font-size: 24px;
+    line-height: 50px;
+    text-align: left;
+    font-weight: normal;
+    color: #8B1465; }
+    #presentation div p span {
       font-weight: bold;
-      color: #43285D;
-      margin-bottom: 10px; }
+      color: #43285D; }
+  #presentation div .resultTitle {
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+    color: #43285D;
+    margin-bottom: 10px; }
+  #presentation div #resetAll {
+    background-color: #CE168E;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #EAEB21;
+    cursor: pointer;
+    border: none;
+    float: right; }
 
 #catalogue {
-  display: contents; }
+  display: contents;
+  margin-bottom: 20px; }
   #catalogue .catalogueCard {
     font-size: 48px;
     font-weight: bold;
     text-align: center;
-    padding: 100px 0;
+    padding: 50px 0;
     margin: 20px 50px;
     background-color: #4F4F4B;
     border-style: solid;
@@ -91,11 +113,3 @@ a {
     color: #EAEB21;
     background-color: #764B92;
     border-color: #CE168E; }
-  #catalogue #braveheartCard {
-    grid-area: braveheart; }
-  #catalogue #gotCard {
-    grid-area: got; }
-  #catalogue #espanolCard {
-    grid-area: espanol; }
-  #catalogue #avatarCard {
-    grid-area: avatar; }
