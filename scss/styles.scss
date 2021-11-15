@@ -7,36 +7,42 @@ header {
     margin: 20px;
     text-align: center;
     h1 {
+        display: none;
         font-size: 100px;
         color: #43285D;
         margin-bottom: 20px;
     }
     h2 {
+        display: none;
         font-weight: normal;
         font-size: 28px;
         color: #43285D;
     }
 }
 
-nav ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    list-style-type: none;
-    padding: 0;
-    li {
-        background-color: #EAEB21;
-        padding: 10px 30px;
-        border-radius: 10px;
-        font-size: 24px;
-        font-weight: bold;
-        color: #43285D;
-        cursor: pointer;
+nav {
+    display: none;
+    ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        list-style-type: none;
+        padding: 0;
+        li {
+            background-color: #EAEB21;
+            padding: 10px 30px;
+            border-radius: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #43285D;
+            cursor: pointer;
+        }
     }
 }
 
 #inputWords {
+    display: none;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
@@ -69,6 +75,7 @@ a {
     text-decoration: none;
 }
 #presentation {
+    display: none;
     div {
         margin: 20px;
         padding: 60px 30px 60px 30px;
@@ -112,7 +119,7 @@ a {
 }
 
 #catalogue {
-    display: contents;
+    display: none;
     margin-bottom: 20px;
     .catalogueCard {
         font-size: 48px;

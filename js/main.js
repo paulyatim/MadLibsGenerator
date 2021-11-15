@@ -18,6 +18,13 @@ const catalogue = [
                  prompts: ["famous singer", "famous singer", "Glee character", "adjetive", "Glee character", "Glee character", "Glee character", "body part", "Glee character", "Glee character", "musical", "adjetive", "adjetive"]}
                 ];
 
+// Efectos de cuando se inicia la página
+$("header h1").fadeIn(1000);
+$("header h2").delay(500).fadeIn(1000);
+$("#categories").delay(1000).fadeIn(1000);
+$("#catalogue").delay(1500).fadeIn(1000);
+
+
 // Cuando se hace click al boton "All", se muestran todas las opciones
 $("#sortAll").click(function() {
     $("#catalogue div").show();
@@ -61,7 +68,7 @@ $(".catalogueCard").click(playMadLib);
 function playMadLib(e) {
     let selectedCard = e.target.id;
     let card = selectCard(selectedCard);
-    $("#presentation").text("");
+    $("#presentation").text("").css("display", "none");
     let list = $("#inputWords");
     list.text("");
     for (const type of card.prompts) {
@@ -69,6 +76,7 @@ function playMadLib(e) {
                      <input type="text" class="inputWord">`);
     }
     list.append(`<a href="#presentation"><button onclick="loadWords(${card.id})">Submit Words</button></a>`);
+    list.fadeIn(1000);
 }
 
 function selectCard(selectedCard) {
@@ -100,7 +108,6 @@ function loadWords(madLibId) {
 
 // función que muestra el madLib con los valores ingresados por el usuario
 function showMadLib(madLibId, answers) {
-    $("#presentation").text("");
     $("#presentation").append("<div></div>");
     let presentationText = $("#presentation div")
     switch (madLibId) {
@@ -128,9 +135,10 @@ function showMadLib(madLibId, answers) {
             break;
     }
     presentationText.append(`<a href="#categories"><button id="resetAll" onclick="reset()">Play another MadLib</button></a>`);
+    $("#presentation").fadeIn(1000);
 }
 // Cuando se hace click al boton "Play another MadLib", el juego se resetea y regresa al catalogo
 function reset() {
-    $("#inputWords").text("");
-    $("#presentation").text("");
+    $("#inputWords").text("").css("display", "none");
+    $("#presentation").text("").css("display", "none");
 }
