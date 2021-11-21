@@ -16,7 +16,59 @@ header {
         display: none;
         font-weight: normal;
         font-size: 28px;
-        color: #43285D;
+        color: black;
+    }
+}
+
+#randomWordsSection {
+    display: none;
+    margin: 20px;
+    h2 {
+        font-weight: normal;
+        font-size: 24px;
+        color: #8B1465;
+        line-height: 1.25;
+        #btnRW {
+            font-size: 24px;
+            font-family: 'Josefin Sans', sans-serif;
+            padding: 2px 10px;
+            border-radius: 5
+        px
+        ;
+            cursor: pointer;
+        }
+    }
+    #randomWords {
+        display: none;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        li {
+            background-color: #4F4F4B;
+            color: #FAF8F6;
+            padding: 5px 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            .wordRW {
+                color: #EAEB21;
+                text-transform: uppercase;
+                font-size: 20px;
+                margin: 10px 0;
+            }
+            .partOfSpeechRW {
+                text-transform: capitalize;
+                font-size: 18px;
+                margin: 10px 0;
+            }
+            .definitionRW {
+                font-size: 18px;
+                margin: 10px 0;
+                line-height: 1.25;
+            }
+            .definitionRW::first-letter {
+                text-transform: uppercase;
+            }
+        }
     }
 }
 
