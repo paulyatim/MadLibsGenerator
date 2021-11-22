@@ -15,7 +15,8 @@ header {
     display: none;
     font-weight: normal;
     font-size: 28px;
-    color: black; }
+    color: black;
+    line-height: 1.25; }
 
 #randomWordsSection {
   display: none;
