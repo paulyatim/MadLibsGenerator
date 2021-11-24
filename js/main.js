@@ -36,28 +36,28 @@ $("#btnRW").click(function (e) {
     e.preventDefault();
     $("#randomWords").slideToggle(500);
 });
-$.get(URLRANDOMWORDS,
-    function (words) {
-        let wordCount = 0;
-        for (let word of words) {
-            $.get(`https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=df53c5a1-db45-410c-8727-316c6a8e50c6`,
-                function (data) {
-                    if (wordCount == 3 || typeof(data[0]) == "string" || data[0].fl == "undefined" || data[0].shortdef[0] == "undefined") {
-                        return;
-                    }
-                    $("#randomWords").append(`<li>
-                                                <div class="randomWord">
-                                                    <h3 class="wordRW">${word}</h3>
-                                                    <p class="partOfSpeechRW">${data[0].fl}</p>
-                                                    <p class="definitionRW">${data[0].shortdef[0]}</p>
-                                                </div>
-                                              </li>`);
-                    wordCount++;
-                }
-            )
-        }
-    }
-)
+// $.get(URLRANDOMWORDS,
+//     function (words) {
+//         let wordCount = 0;
+//         for (let word of words) {
+//             $.get(`https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=df53c5a1-db45-410c-8727-316c6a8e50c6`,
+//                 function (data) {
+//                     if (wordCount == 3 || typeof(data[0]) == "string" || data[0].fl == "undefined" || data[0].shortdef[0] == "undefined") {
+//                         return;
+//                     }
+//                     $("#randomWords").append(`<li>
+//                                                 <div class="randomWord">
+//                                                     <h3 class="wordRW">${word}</h3>
+//                                                     <p class="partOfSpeechRW">${data[0].fl}</p>
+//                                                     <p class="definitionRW">${data[0].shortdef[0]}</p>
+//                                                 </div>
+//                                               </li>`);
+//                     wordCount++;
+//                 }
+//             )
+//         }
+//     }
+// )
 
 
 // Cuando se hace click al boton "All", se muestran todas las opciones
@@ -147,6 +147,7 @@ function loadWords(madLibId) {
 
 // función que muestra el madLib con los valores ingresados por el usuario
 function showMadLib(madLibId, answers) {
+    $("#presentation").text("");
     $("#presentation").append("<div></div>");
     let presentationText = $("#presentation div")
     switch (madLibId) {
@@ -243,7 +244,7 @@ function showMadLib(madLibId, answers) {
                                     -<span>${answers[1]}</span> controla el clima-</p>`);
             break;
     }
-    presentationText.append(`<a href="#categories"><button id="resetAll" onclick="reset()">Play another MadLib</button></a>`);
+    presentationText.append(`<a href="#"><button id="resetAll" onclick="reset()">Play another MadLib</button></a>`);
     $("#presentation").fadeIn(1000);
 }
 // Cuando se hace click al boton "Play another MadLib", el juego se resetea y regresa al catalogo
