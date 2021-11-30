@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>MadLibs Generator!</title>
@@ -15,7 +16,7 @@
         <h2>Mad Libs is a fill-in-the-blank word game where you choose a text and then, when asked to, type in specific type of words (noun, verb, part of body plural, celebrity male, etc.). After you type in every needed word, usually a nonsensical text will be made.</h2>
     </header>
     <section id="randomWordsSection">
-        <h2>Want to make the game more challenging? Include one of these random words in your MadLib: <button id="btnRW">Show Words</button></h2>
+        <h2>Want to make the game more challenging? Include one of these random words in your MadLib: <button id="btnRW">Show Random Words</button></h2>
         <ul id="randomWords"></ul>
     </section>
     <nav id="categories">
@@ -28,39 +29,43 @@
         </ul>
     </nav>
     <section id="catalogue">
-        <a href="#inputWords">
-            <div id="braveheartCard" class="catalogueCard">
+        <div id="card-1" class="catalogueCard">
+            <a href="#inputWords" id="braveheartCard" class="card">
                 Braveheart
-            </div>
-        </a>
-        <a href="#inputWords">
-            <div id="gotCard" class="catalogueCard">
+            </a>
+        </div>
+        <div id="card-2" class="catalogueCard">
+            <a href="#inputWords"  id="gotCard" class="card">
                 Game Of Thrones
-            </div>
-        </a>
-        <a href="#inputWords">
-            <div id="cumpleCard" class="catalogueCard">
+            </a>
+        </div>
+        <div id="card-3" class="catalogueCard">
+            <a href="#inputWords" id="cumpleCard" class="card">
                 ¡Cumpleaños!
-            </div>
-        </a>
-        <a href="#inputWords">
-            <div id="avatarCard" class="catalogueCard">
+            </a>
+        </div>
+        <div id="card-4" class="catalogueCard">
+            <a href="#inputWords" id="avatarCard" class="card">
                 Avatar
-            </div>
-        </a>
-        <a href="#inputWords">
-            <div id="gleeCard" class="catalogueCard">
+            </a>
+        </div>
+        <div id="card-5" class="catalogueCard">
+            <a href="#inputWords" id="gleeCard" class="card">
                 Glee
-            </div>
-        </a>
-        <a href="#inputWords">
-            <div id="liloCard" class="catalogueCard">
+            </a>
+        </div>
+        <div id="card-6" class="catalogueCard">
+            <a href="#inputWords" id="liloCard" class="card">
                 Lilo y Stitch
-            </div>
-        </a>
+            </a>
+        </div>
     </section>
     <section id="inputWords"></section>
     <section id="presentation"></section>
+
+    <footer id="footer">
+        <p>Copyright © 2021</p>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>

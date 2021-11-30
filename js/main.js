@@ -25,7 +25,7 @@ $("header h1").fadeIn(1000);
 $("header h2").delay(500).fadeIn(1000);
 $("#randomWordsSection").delay(1000).fadeIn(1000);
 $("#categories").delay(1500).fadeIn(1000);
-$("#catalogue").delay(2000).fadeIn(1000);
+$("#catalogue").delay(2000).animate({opacity: "1"}, 1000);
 
 // Uso un API para generar palabras aleatorias y otro para buscar su definición
 // Como el algunas palabras del API de palabras aleatorias no tienen definición en el otro API,
@@ -62,44 +62,44 @@ $.get(URLRANDOMWORDS,
 
 // Cuando se hace click al boton "All", se muestran todas las opciones
 $("#sortAll").click(function() {
-    $("#catalogue div").show();
+    $(".catalogueCard").show();
 });
 // Cuando se hace click a cualquir boton del navegador, se muestran todas las opciones en el mismo
 // color menos la que se selecciona
 $("#categories li").click(function() {
-    $("#categories li").css("background-color", "#EAEB21");
+    $("#categories li").css("background-color", "#4F4F4B");
 })
 // Cuando se hace click al boton "Movies", se muestran las opciones de dicha categoria
 $("#sortMovies").click(function() {
-    $("#catalogue div").hide();
-    $("#braveheartCard").show();
-    $("#liloCard").show();
-    $("#sortMovies").css("background-color", "#cfcf1c");
+    $(".catalogueCard").hide();
+    $("#card-1").show();
+    $("#card-6").show();
+    $("#sortMovies").css("background-color", "#073b4c");
 });
 // Cuando se hace click al boton "TV", se muestran las opciones de dicha categoria
 $("#sortTV").click(function() {
-    $("#catalogue div").hide();
-    $("#gotCard").show();
-    $("#avatarCard").show();
-    $("#gleeCard").show();
-    $("#sortTV").css("background-color", "#cfcf1c");
+    $(".catalogueCard").hide();
+    $("#card-2").show();
+    $("#card-4").show();
+    $("#card-5").show();
+    $("#sortTV").css("background-color", "#073b4c");
 });
 // Cuando se hace click al boton "Español", se muestran las opciones de dicha categoria
 $("#sortEspanol").click(function() {
-    $("#catalogue div").hide();
-    $("#cumpleCard").show();
-    $("#liloCard").show();
-    $("#sortEspanol").css("background-color", "#cfcf1c");
+    $(".catalogueCard").hide();
+    $("#card-3").show();
+    $("#card-6").show();
+    $("#sortEspanol").css("background-color", "#073b4c");
 });
 // Cuando se hace click al boton "< 18", se muestran las opciones de dicha categoria
 $("#sort18").click(function() {
-    $("#catalogue div").show();
-    $("#gotCard").hide();
-    $("#sort18").css("background-color", "#cfcf1c");
+    $(".catalogueCard").show();
+    $("#card-2").hide();
+    $("#sort18").css("background-color", "#073b4c");
 });
 
 // Cuando se hace click a la carta, empieza el juego seleccionado
-$(".catalogueCard").click(playMadLib);
+$(".card").click(playMadLib);
 
 // función que muestra los inputs del juego al que se le hizo click
 function playMadLib(e) {
