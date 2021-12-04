@@ -17,7 +17,11 @@ const catalogue = [
                 {id:5,
                     prompts: ["famous singer", "famous singer", "Glee character", "adjective", "Glee character", "Glee character", "Glee character", "body part", "Glee character", "Glee character", "musical", "adjective", "adjective"]},
                 {id:6,
-                    prompts: ["día de la semana", "animal masculino", "animal masculino", "relleno de sandwich", "pariente", "animal masculino", "adjetivo masculino"]}
+                    prompts: ["día de la semana", "animal masculino", "animal masculino", "relleno de sandwich", "pariente", "animal masculino", "adjetivo masculino"]},
+                {id:7,
+                    prompts: ["adjetivo masculino", "parte del cuerpo en plural", "comida", "nombre", "adjetivo masculino", "verbo presente indicativo", "parte del cuerpo en singular", "líquido"]},
+                {id:8,
+                    prompts: ["adjective", "past verb", "body part", "adjective", "verb ending in 'ing'", "mood", "adjective", "adjective", "body part", "body part", "past verb", "plural animal"]}
                 ];
 
 // Efectos de cuando se inicia la página
@@ -31,33 +35,33 @@ $("#catalogue").delay(2000).animate({opacity: "1"}, 1000);
 // Como el algunas palabras del API de palabras aleatorias no tienen definición en el otro API,
 // solicito más palabras aleatorias de las que necesito.
 
-let URLRANDOMWORDS = "https://random-word-api.herokuapp.com/word?number=15"
-$("#btnRW").click(function (e) { 
-    e.preventDefault();
-    $("#randomWords").slideToggle(500);
-});
-$.get(URLRANDOMWORDS,
-    function (words) {
-        let wordCount = 0;
-        for (let word of words) {
-            $.get(`https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=df53c5a1-db45-410c-8727-316c6a8e50c6`,
-                function (data) {
-                    if (wordCount == 3 || typeof(data[0]) == "string" || data[0].fl == "undefined" || data[0].shortdef[0] == "undefined") {
-                        return;
-                    }
-                    $("#randomWords").append(`<li>
-                                                <div class="randomWord">
-                                                    <h3 class="wordRW">${word}</h3>
-                                                    <p class="partOfSpeechRW">${data[0].fl}</p>
-                                                    <p class="definitionRW">${data[0].shortdef[0]}</p>
-                                                </div>
-                                              </li>`);
-                    wordCount++;
-                }
-            )
-        }
-    }
-)
+// let URLRANDOMWORDS = "https://random-word-api.herokuapp.com/word?number=15"
+// $("#btnRW").click(function (e) { 
+//     e.preventDefault();
+//     $("#randomWords").slideToggle(500);
+// });
+// $.get(URLRANDOMWORDS,
+//     function (words) {
+//         let wordCount = 0;
+//         for (let word of words) {
+//             $.get(`https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=df53c5a1-db45-410c-8727-316c6a8e50c6`,
+//                 function (data) {
+//                     if (wordCount == 3 || typeof(data[0]) == "string" || data[0].fl == "undefined" || data[0].shortdef[0] == "undefined") {
+//                         return;
+//                     }
+//                     $("#randomWords").append(`<li>
+//                                                 <div class="randomWord">
+//                                                     <h3 class="wordRW">${word}</h3>
+//                                                     <p class="partOfSpeechRW">${data[0].fl}</p>
+//                                                     <p class="definitionRW">${data[0].shortdef[0]}</p>
+//                                                 </div>
+//                                               </li>`);
+//                     wordCount++;
+//                 }
+//             )
+//         }
+//     }
+// )
 
 
 // Cuando se hace click al boton "All", se muestran todas las opciones
@@ -74,6 +78,7 @@ $("#sortMovies").click(function() {
     $(".catalogueCard").hide();
     $("#card-1").show();
     $("#card-6").show();
+    $("#card-7").show();
     $("#sortMovies").css("background-color", "#073b4c");
 });
 // Cuando se hace click al boton "TV", se muestran las opciones de dicha categoria
@@ -89,12 +94,14 @@ $("#sortEspanol").click(function() {
     $(".catalogueCard").hide();
     $("#card-3").show();
     $("#card-6").show();
+    $("#card-7").show();
     $("#sortEspanol").css("background-color", "#073b4c");
 });
 // Cuando se hace click al boton "< 18", se muestran las opciones de dicha categoria
 $("#sort18").click(function() {
-    $(".catalogueCard").show();
-    $("#card-2").hide();
+    $(".catalogueCard").hide();
+    $("#card-2").show();
+    $("#card-8").show();
     $("#sort18").css("background-color", "#073b4c");
 });
 
@@ -130,6 +137,10 @@ function selectCard(selectedCard) {
             return catalogue[4];
         case "liloCard":
             return catalogue[5];
+        case "shrekCard":
+            return catalogue[6];
+        case "firstTimeCard":
+            return catalogue[7];
         default:
             break;
     }
@@ -215,8 +226,6 @@ function showMadLib(madLibId, answers) {
                                      that sure they were right for the part to begin with.<br>And that's what you missed 
                                      on Glee!</p>`);
             break;
-        default:
-            break;
         case 6:
             presentationText.append(`<p class="resultTitle">Lilo y Stitch (Español)</p>
                                     <p>-¿Lilo por que estas tan mojada?
@@ -243,6 +252,48 @@ function showMadLib(madLibId, answers) {
                                     <br>
                                     -<span>${answers[1]}</span> controla el clima-</p>`);
             break;
+        case 7:
+            presentationText.append(`<p class="resultTitle">Shrek (Español)</p>
+                                    <p>-He tratado de ser <span>${answers[0]}</span> con ustedes pero mi paciencia 
+                                    a llegado a su límite, dime o te arrancaré..
+                                    <br>
+                                    -¡No! ¡Mis <span>${answers[1]}</span> no! No mis <span>${answers[1]}</span> 
+                                    de... <span>${answers[2]}</span>.
+                                    <br>
+                                    -¡Entonces cuéntame! ¡¿Quién los oculta?!
+                                    <br>
+                                    -De acuerdo... te lo cuento... ¿Tú conoces a <span>${answers[3]}</span> Pon?
+                                    <br>
+                                    -A <span>${answers[3]}</span> Pon?
+                                    <br>
+                                    -Sí, <span>${answers[3]}</span> Pon...
+                                    <br>
+                                    -Sí... es un muñeco muy <span>${answers[4]}</span> y de cartón.
+                                    <br>
+                                    -Si... se <span>${answers[5]}</span> su <span>${answers[6]}</span> con 
+                                    <span>${answers[7]}</span> y con jabón.
+                                    <br>
+                                    -¿!Con <span>${answers[7]}</span> y con jabón¡?
+                                    <br>
+                                    -Si se <span>${answers[5]}</span> su <span>${answers[6]}</span>!!
+                                    <br>
+                                    -Se <span>${answers[5]}</span> su <span>${answers[6]}</span> con 
+                                    <span>${answers[7]}</span> y con jabón...</p>`);
+            break;
+        case 8:
+            presentationText.append(`<p class="resultTitle">Our First Time</p>
+                                        <p>There was so much anticipation leading up to our <span>${answers[0]}</span> 
+                                        first time. Up to that point we had only ever <span>${answers[1]}</span> each 
+                                        other's <span>${answers[2]}</span>. So when the <span>${answers[3]}</span> 
+                                        night came, we were both <span>${answers[4]}</span> because we were so 
+                                        <span>${answers[5]}</span>. We started off <span>${answers[6]}</span>, but 
+                                        things started to get more <span>${answers[7]}</span> as we went along. 
+                                        The most memorable part was when you stuck your <span>${answers[8]}</span> 
+                                        into my <span>${answers[9]}</span>. I will admit, it <span>${answers[10]}</span> 
+                                        me greatly. Over all, it was truly a night to remember. we were real 
+                                        <span>${answers[11]}</span> in the sack!</p>`);
+            break;
+        default:
     }
     presentationText.append(`<a href="#"><button id="resetAll" onclick="reset()">Play another MadLib</button></a>`);
     $("#presentation").fadeIn(1000);
