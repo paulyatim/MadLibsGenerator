@@ -35,33 +35,33 @@ $("#catalogue").delay(2000).animate({opacity: "1"}, 1000);
 // Como el algunas palabras del API de palabras aleatorias no tienen definición en el otro API,
 // solicito más palabras aleatorias de las que necesito.
 
-// let URLRANDOMWORDS = "https://random-word-api.herokuapp.com/word?number=15"
-// $("#btnRW").click(function (e) { 
-//     e.preventDefault();
-//     $("#randomWords").slideToggle(500);
-// });
-// $.get(URLRANDOMWORDS,
-//     function (words) {
-//         let wordCount = 0;
-//         for (let word of words) {
-//             $.get(`https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=df53c5a1-db45-410c-8727-316c6a8e50c6`,
-//                 function (data) {
-//                     if (wordCount == 3 || typeof(data[0]) == "string" || data[0].fl == "undefined" || data[0].shortdef[0] == "undefined") {
-//                         return;
-//                     }
-//                     $("#randomWords").append(`<li>
-//                                                 <div class="randomWord">
-//                                                     <h3 class="wordRW">${word}</h3>
-//                                                     <p class="partOfSpeechRW">${data[0].fl}</p>
-//                                                     <p class="definitionRW">${data[0].shortdef[0]}</p>
-//                                                 </div>
-//                                               </li>`);
-//                     wordCount++;
-//                 }
-//             )
-//         }
-//     }
-// )
+let URLRANDOMWORDS = "https://random-word-api.herokuapp.com/word?number=15"
+$("#btnRW").click(function (e) { 
+    e.preventDefault();
+    $("#randomWords").slideToggle(500);
+});
+$.get(URLRANDOMWORDS,
+    function (words) {
+        let wordCount = 0;
+        for (let word of words) {
+            $.get(`https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=df53c5a1-db45-410c-8727-316c6a8e50c6`,
+                function (data) {
+                    if (wordCount == 3 || typeof(data[0]) == "string" || data[0].fl == "undefined" || data[0].shortdef[0] == "undefined") {
+                        return;
+                    }
+                    $("#randomWords").append(`<li>
+                                                <div class="randomWord">
+                                                    <h3 class="wordRW">${word}</h3>
+                                                    <p class="partOfSpeechRW">${data[0].fl}</p>
+                                                    <p class="definitionRW">${data[0].shortdef[0]}</p>
+                                                </div>
+                                              </li>`);
+                    wordCount++;
+                }
+            )
+        }
+    }
+)
 
 
 // Cuando se hace click al boton "All", se muestran todas las opciones
